@@ -120,8 +120,10 @@ function! <SID>BackwardKillLine()
     return l:ret
 endfunction
 
+
 cnoremap <Esc>d <C-\>e<SID>KillWord()<CR>
-cmap <M-D> <Esc>d
+cnoremap <M-d> <C-\>e<SID>KillWord()<CR>
+
 function! <SID>KillWord()
     call <SID>saveUndoHistory(getcmdline(), getcmdpos())
     let l:loc = strpart(getcmdline(), 0, getcmdpos() - 1)
